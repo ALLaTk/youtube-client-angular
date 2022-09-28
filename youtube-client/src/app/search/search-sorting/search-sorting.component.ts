@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './search-sorting.component.html',
   styleUrls: ['./search-sorting.component.scss'],
 })
-export class SearchSortingComponent {}
+export class SearchSortingComponent {
+  public title = 'Sorting by:';
+}
