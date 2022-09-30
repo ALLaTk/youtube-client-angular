@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  public placeholderText: string = 'What are you want to find out?';
+}
