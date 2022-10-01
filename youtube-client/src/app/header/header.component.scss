@@ -4,13 +4,18 @@ $shadow : 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0
 
 .header {
   display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 10px;
+  height: 80px;
+  background: #E5E5E5;
+.header__search-block {
+  display: flex;
   justify-content: center;
   align-items: center;
-  background: #E5E5E5;
-  max-width: 1440px;
-  height: 80px;
-  padding: 10px;
+  padding-left: 156px;
   margin: 0 auto;
+  width: 100%;
   .header__button-logo {
     height: 40px;
     min-width: 45px;
@@ -54,29 +59,35 @@ $shadow : 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0
     align-items: center;
     border-radius: 8px;
   }
-  .header__logo-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 138px;
-    .logo-name {
-      width: 102px;
-      text-align: end;
-      margin: 0 10px;
-    }
-    .logo-img {
-      border-radius: 8px;
-      box-shadow: $shadow;
-    }
+}
+.header__logo-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  right: 20px;
+  .logo-name {
+    width: 102px;
+    text-align: end;
+    margin: 0 10px;
+  }
+  .logo-img {
+    border-radius: 8px;
+    box-shadow: $shadow;
   }
 }
-@media screen and (max-width: 860px) {
+}
+
+@media screen and (max-width: 960px) {
   .header {
+    flex-direction: column;
+    align-items: end;
+    .header__search-block {
+      padding: 0 0 10px 0;
+    }
     .header__logo-content {
-      padding-left: 10px;
-      .logo-name {
-        width: 50px;
-      }
+      width: 160px;
+      padding-left: 5px;
     }
   }
 }

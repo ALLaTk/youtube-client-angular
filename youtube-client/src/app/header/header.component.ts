@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   public placeholderText: string = 'What are you want to find out?';
+
+  public path: string = '../../assets/svg/logo.svg';
 }
