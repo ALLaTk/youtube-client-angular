@@ -12,6 +12,7 @@
     align-items: center;
     .filter__name {
       margin: 0;
+      color: #929292;
     }
     .filter__buttons-block {
       padding: 0 10px;
@@ -48,6 +49,7 @@
       outline:none;
       font-size: 13px;
       font-weight: 400;
+      padding: 2px;
     }
   }
 }
