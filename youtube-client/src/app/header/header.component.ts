@@ -8,10 +8,9 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   public placeholderText: string = 'What are you want to find out?';
 
-  public flagForRenderFilterBlock: boolean = false;
+  public flagToggleFilterBlock: boolean = false;
 
-  public showFilterBlock() {
-    if (this.flagForRenderFilterBlock) this.flagForRenderFilterBlock = false;
-    else this.flagForRenderFilterBlock = true;
+  public toggleFilterBlock() {
+    this.flagToggleFilterBlock = !this.flagToggleFilterBlock;
   }
 }

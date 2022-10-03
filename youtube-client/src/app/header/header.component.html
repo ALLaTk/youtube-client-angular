@@ -8,7 +8,7 @@
     <button
       class="header__button-setting"
       mat-raised-button
-      (click)="showFilterBlock()"
+      (click)="toggleFilterBlock()"
     >
       <img
         src="./assets/svg/settings.svg"
@@ -23,4 +23,4 @@
     <img class="logo-img" src="./assets/svg/logo.svg" alt="logo" width="34px" />
   </div>
 </header>
-<app-filter *ngIf="flagForRenderFilterBlock"></app-filter>
+<app-filter *ngIf="flagToggleFilterBlock"></app-filter>
