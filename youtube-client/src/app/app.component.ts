@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'youtube-client';
+
+  public nameVideo: string = '';
+
+  public getInputValue(value: string) {
+    this.nameVideo = value;
+  }
 }

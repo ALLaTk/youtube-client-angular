@@ -1,8 +1,18 @@
 <header class="header">
   <div class="header__search-block">
     <button class="header__button-logo" mat-raised-button>►</button>
-    <input class="header__input" type="text" [placeholder]="placeholderText" />
-    <button class="header__button-search" mat-raised-button color="primary">
+    <input
+      #searchField
+      class="header__input"
+      type="text"
+      [placeholder]="placeholderText"
+    />
+    <button
+      class="header__button-search"
+      mat-raised-button
+      color="primary"
+      (click)="getValueSearch(searchField.value); searchField.value = ''"
+    >
       search
     </button>
     <button

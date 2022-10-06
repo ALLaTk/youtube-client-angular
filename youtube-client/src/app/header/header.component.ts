@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,13 @@ export class HeaderComponent {
 
   public flagToggleFilterBlock: boolean = false;
 
+  @Output() nameVideoEventEmitter = new EventEmitter<string>();
+
   public toggleFilterBlock() {
     this.flagToggleFilterBlock = !this.flagToggleFilterBlock;
+  }
+
+  getValueSearch(value: string) {
+    if (value) this.nameVideoEventEmitter.emit(value);
   }
 }

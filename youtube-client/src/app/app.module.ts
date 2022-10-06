@@ -6,8 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { SearchItemComponent } from './search/search-item/search-item.component';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
+import { SearchItemComponent } from './search-results/search-item/search-item.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 import { FilterComponent } from './filter/filter.component';
 
 @NgModule({

@@ -1,3 +1,3 @@
-<app-header></app-header>
-<app-search-results></app-search-results>
+<app-header (nameVideoEventEmitter)="getInputValue($event)"></app-header>
+<app-search-results [searchNameVideo]="nameVideo"></app-search-results>
 <router-outlet></router-outlet>
