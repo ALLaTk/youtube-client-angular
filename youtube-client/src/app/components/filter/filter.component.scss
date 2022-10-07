@@ -31,9 +31,17 @@
       .data {
         min-width: 30px;
         margin-right: 21px;
+        text-decoration-line: underline;
+      }
+      .data.active {
+        color: #B40095;
       }
       .views {
         margin-right: 21px;
+        text-decoration-line: underline;
+      }
+      .views.active {
+        color: #B40095;
       }
     }
     .filter__input {
@@ -50,6 +58,15 @@
       font-size: 13px;
       font-weight: 400;
       padding: 2px;
+      margin-right: 10px;
+    }
+    .filter__sort {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #2F80ED;
+      font-size: 20px;
+      width: 5px;
     }
   }
 }

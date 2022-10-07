@@ -1,40 +1,39 @@
-<div class="card" [ngStyle]="{ 'border-color': colorBottom }">
+<div
+  class="card"
+  *ngIf="item"
+  appBorderItem
+  [itemDate]="item.snippet.publishedAt">
   <img
     class="card__image"
     src="{{ item.snippet.thumbnails.medium.url }}"
-    alt="cardImage"
-  />
+    alt="cardImage" />
   <div class="card__statistics">
     <div class="card__statistics-iform">
       <img
         class="card__statistics-icon"
         src="./assets/svg/viewed.svg"
-        alt="viewed"
-      />
+        alt="viewed" />
       <p class="card__statistics-count">{{ item.statistics.viewCount }}</p>
     </div>
     <div class="card__statistics-iform">
       <img
         class="card__statistics-icon"
         src="./assets/svg/liked.svg"
-        alt="liked"
-      />
+        alt="liked" />
       <p class="card__statistics-count">{{ item.statistics.likeCount }}</p>
     </div>
     <div class="card__statistics-iform">
       <img
         class="card__statistics-icon"
         src="./assets/svg/dislike.svg"
-        alt="dislike"
-      />
+        alt="dislike" />
       <p class="card__statistics-count">{{ item.statistics.dislikeCount }}</p>
     </div>
     <div class="card__statistics-iform">
       <img
         class="card__statistics-icon"
         src="./assets/svg/comments.svg"
-        alt="comments"
-      />
+        alt="comments" />
       <p class="card__statistics-count">{{ item.statistics.commentCount }}</p>
     </div>
   </div>

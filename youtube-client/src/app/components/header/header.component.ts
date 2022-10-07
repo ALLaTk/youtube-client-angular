@@ -12,11 +12,23 @@ export class HeaderComponent {
 
   @Output() nameVideoEventEmitter = new EventEmitter<string>();
 
+  @Output() keyWordEventEmitter = new EventEmitter<string>();
+
+  @Output() flagDateEventEmitter = new EventEmitter<string[]>();
+
   public toggleFilterBlock() {
     this.flagToggleFilterBlock = !this.flagToggleFilterBlock;
   }
 
-  getValueSearch(value: string) {
+  public getValueSearch(value: string) {
     if (value) this.nameVideoEventEmitter.emit(value);
+  }
+
+  public getKeyWordValue(value: string) {
+    this.keyWordEventEmitter.emit(value);
+  }
+
+  public getflagSortValue(value: string[]) {
+    this.flagDateEventEmitter.emit(value);
   }
 }

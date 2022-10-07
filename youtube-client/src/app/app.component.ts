@@ -10,7 +10,19 @@ export class AppComponent {
 
   public nameVideo: string = '';
 
-  public getInputValue(value: string) {
+  public keyWord: string = '';
+
+  public sortData: string[] = [];
+
+  public getRequestValue(value: string) {
     this.nameVideo = value;
+  }
+
+  public getKeywordValue(value: string) {
+    this.keyWord = value;
+  }
+
+  public getDataSortValue(value: string[]) {
+    this.sortData = value;
   }
 }

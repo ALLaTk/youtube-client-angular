@@ -5,10 +5,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { SearchItemComponent } from './search-results/search-item/search-item.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
-import { FilterComponent } from './filter/filter.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchItemComponent } from './components/search-results/search-item/search-item.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { BorderItemDirective } from './directives/border-item.directive';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { FilterComponent } from './filter/filter.component';
     SearchItemComponent,
     SearchResultsComponent,
     FilterComponent,
+    BorderItemDirective,
+    SortingPipe,
   ],
   imports: [
     BrowserModule,
