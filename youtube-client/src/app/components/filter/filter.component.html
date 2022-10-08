@@ -6,14 +6,14 @@
         class="filter__button data"
         mat-flat-button
         (click)="changeSortValue('date')"
-        [class.active]="activClass === 'date'">
+        [class.active]="activeClass === 'date'">
         date
       </button>
       <button
         class="filter__button views"
         mat-flat-button
         (click)="changeSortValue('views')"
-        [class.active]="activClass === 'views'">
+        [class.active]="activeClass === 'views'">
         count of views
       </button>
       <div class="filter__button word" mat-flat-button>by word or sentance</div>
