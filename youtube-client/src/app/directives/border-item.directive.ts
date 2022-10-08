@@ -10,13 +10,6 @@ export class BorderItemDirective implements OnInit {
   @Input()
   public itemDate!: string;
 
-  private colorsBorderObj: { [key: string]: string } = {
-    red: '#EB5757',
-    yellow: '#F2C94C',
-    green: '#27AE60',
-    blue: '#2F80ED',
-  };
-
   public colorBottom: string = '';
 
   ngOnInit(): void {
