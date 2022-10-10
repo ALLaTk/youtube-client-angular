@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { BySort } from '../components/filter/models/filter.model';
-import { SearchItem } from '../components/search-results/models/search-item.model';
+import { BySort } from '../../components/filter/models/filter.model';
+import { SearchItem } from '../../components/search-results/models/search-item.model';
+import { SortKeyword } from './models/sorting.model';
 
 @Pipe({
   name: 'sorting',
@@ -14,12 +15,12 @@ export class SortingPipe implements PipeTransform {
     if (!keySort) return items;
 
     switch (bySort) {
-      case 'word': {
+      case SortKeyword.byWord: {
         return items.filter((item) =>
           item.snippet.title.toLowerCase().includes(keySort.toLowerCase()),
         );
       }
-      case 'date': {
+      case SortKeyword.byDate: {
         items.sort(
           (a, b) =>
             new Date(b.snippet.publishedAt).getTime() -
@@ -27,7 +28,7 @@ export class SortingPipe implements PipeTransform {
         );
         return keySort === BySort.descending ? items.reverse() : items;
       }
-      case 'views': {
+      case SortKeyword.byViews: {
         items.sort((a, b) => +b.statistics.viewCount - +a.statistics.viewCount);
         return keySort === BySort.descending ? items.reverse() : items;
       }

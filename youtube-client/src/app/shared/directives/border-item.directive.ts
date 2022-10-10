@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { ColorsBorder, Period } from './models/border-item.model';
+import { ColorsBorder, DAY, Period } from './models/border-item.model';
 
 @Directive({
   selector: '[appBorderItem]',
@@ -26,8 +26,7 @@ export class BorderItemDirective implements OnInit {
     const nowDate: Date = new Date();
     const pastDate: Date = new Date(this.itemDate);
     const diff = Math.floor(nowDate.getTime() - pastDate.getTime());
-    const day = 1000 * 60 * 60 * 24;
-    const days = Math.floor(diff / day);
+    const days = Math.floor(diff / DAY);
 
     if (days > Period.month && days <= Period.halfYear) {
       this.colorBottom = ColorsBorder.yellow;

@@ -4,29 +4,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { SearchItemComponent } from './components/search-results/search-item/search-item.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { BorderItemDirective } from './directives/border-item.directive';
-import { SortingPipe } from './pipes/sorting.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FilterComponent,
     SearchItemComponent,
     SearchResultsComponent,
-    FilterComponent,
-    BorderItemDirective,
-    SortingPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
     MatButtonModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

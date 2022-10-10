@@ -10,3 +10,13 @@ export enum Period {
   month = 30,
   halfYear = month * 6,
 }
+
+enum ConvertOnDay {
+  msec = 1000,
+  sec = 60,
+  min = 60,
+  hours = 24,
+}
+
+export const DAY =
+  ConvertOnDay.msec * ConvertOnDay.sec * ConvertOnDay.min * ConvertOnDay.hours;
