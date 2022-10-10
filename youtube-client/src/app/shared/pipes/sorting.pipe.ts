@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { BySort } from '../../components/filter/models/filter.model';
-import { SearchItem } from '../../components/search-results/models/search-item.model';
-import { SortKeyword } from './models/sorting.model';
+import { SearchItem } from 'src/app/youtube/components/search-results/models/search-item.model';
+import { BySort, SortKeyword } from '../models/sorting.model';
 
 @Pipe({
   name: 'sorting',

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { SearchItem } from './models/search-item.model';
 import { SearchResponse } from './models/search-response.model';
-import * as data from '../../mock/response.json';
+import * as data from '../../../shared/mock/response.json';
 
 @Component({
   selector: 'app-search-results',

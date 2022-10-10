@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { ColorsBorder, DAY, Period } from './models/border-item.model';
+import { ColorsBorder, DAY, Period } from '../models/border-item.model';
 
 @Directive({
   selector: '[appBorderItem]',

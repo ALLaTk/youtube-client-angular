@@ -3,20 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
+import { YoutubeModule } from './youtube/youtube.module';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
-import { SearchItemComponent } from './components/search-results/search-item/search-item.component';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [AppComponent, SearchItemComponent, SearchResultsComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
     CoreModule,
     SharedModule,
+    YoutubeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

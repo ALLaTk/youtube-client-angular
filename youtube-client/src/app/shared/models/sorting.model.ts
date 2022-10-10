@@ -3,3 +3,8 @@ export enum SortKeyword {
   byDate = 'date',
   byViews = 'views',
 }
+
+export enum BySort {
+  ascending = '⬇',
+  descending = '⬆',
+}

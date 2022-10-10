@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { BySort } from './models/filter.model';
+import { BySort } from 'src/app/shared/models/sorting.model';
 
 @Component({
   selector: 'app-filter',
