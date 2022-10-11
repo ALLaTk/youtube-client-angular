@@ -10,13 +10,16 @@
       class="header__button-search"
       mat-raised-button
       color="primary"
-      (click)="getValueSearch(searchField.value); searchField.value = ''">
+      (click)="
+        this.headerService.getRequestNameVideo(searchField.value);
+        searchField.value = ''
+      ">
       search
     </button>
     <button
       class="header__button-setting"
       mat-raised-button
-      (click)="toggleFilterBlock()">
+      (click)="this.headerService.toggleFilterBlock()">
       <img
         src="./assets/svg/settings.svg"
         alt="setting"
@@ -29,7 +32,4 @@
     <img class="logo-img" src="./assets/svg/logo.svg" alt="logo" width="34px" />
   </div>
 </header>
-<app-filter
-  *ngIf="flagToggleFilterBlock"
-  (transmitkeyWordEventEmitter)="getKeyWordValue($event)"
-  (transmitflagSortEventEmitter)="getflagSortValue($event)"></app-filter>
+<app-filter *ngIf="this.headerService.isToggleFilter"></app-filter>

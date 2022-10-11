@@ -1,33 +1,18 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
+import { HeaderService } from 'src/app/core/services/header.service';
 import { SearchItem } from './models/search-item.model';
-import { SearchResponse } from './models/search-response.model';
-import * as data from '../../../shared/mock/response.json';
+import { SearchResultService } from '../../services/search-result.service';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent implements OnChanges {
-  @Input() public searchNameVideo: string = '';
+export class SearchResultsComponent {
+  items: SearchItem[] = this.searchResultService.items;
 
-  @Input() public searchkeyWord: string = '';
-
-  @Input() public valueSort: string = '';
-
-  @Input() public flagSort: string = '';
-
-  responseData: SearchResponse = data;
-
-  items: SearchItem[] = this.responseData.items;
-
-  ngOnChanges() {
-    this.searchResult();
-  }
-
-  searchResult(): void {
-    if (!this.searchNameVideo) {
-      this.items = [];
-    } else this.items = this.responseData.items;
-  }
+  constructor(
+    public headerService: HeaderService,
+    public searchResultService: SearchResultService,
+  ) {}
 }

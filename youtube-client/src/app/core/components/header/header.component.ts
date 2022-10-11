@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { HeaderService } from '../../services/header.service';
 
 @Component({
   selector: 'app-header',
@@ -8,27 +9,5 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class HeaderComponent {
   public placeholderText: string = 'What are you want to find out?';
 
-  public flagToggleFilterBlock: boolean = false;
-
-  @Output() nameVideoEventEmitter = new EventEmitter<string>();
-
-  @Output() keyWordEventEmitter = new EventEmitter<string>();
-
-  @Output() flagDateEventEmitter = new EventEmitter<string[]>();
-
-  public toggleFilterBlock() {
-    this.flagToggleFilterBlock = !this.flagToggleFilterBlock;
-  }
-
-  public getValueSearch(value: string) {
-    if (value) this.nameVideoEventEmitter.emit(value);
-  }
-
-  public getKeyWordValue(value: string) {
-    this.keyWordEventEmitter.emit(value);
-  }
-
-  public getflagSortValue(value: string[]) {
-    this.flagDateEventEmitter.emit(value);
-  }
+  constructor(public headerService: HeaderService) {}
 }
