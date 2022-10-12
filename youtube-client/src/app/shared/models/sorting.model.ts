@@ -5,6 +5,6 @@ export enum SortKeyword {
 }
 
 export enum BySort {
-  ascending = '⬇',
-  descending = '⬆',
+  ascending = '▼',
+  descending = '▲',
 }

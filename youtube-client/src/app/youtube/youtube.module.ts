@@ -7,9 +7,15 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
 import { SearchResultService } from './services/search-result.service';
 import { FilterService } from './services/filter.service';
 import { FilterComponent } from './components/filter/filter.component';
+import { SearchResultPageComponent } from './pages/search-result-page/search-result-page.component';
 
 @NgModule({
-  declarations: [SearchItemComponent, SearchResultsComponent, FilterComponent],
+  declarations: [
+    SearchItemComponent,
+    SearchResultsComponent,
+    FilterComponent,
+    SearchResultPageComponent,
+  ],
   exports: [SearchItemComponent, SearchResultsComponent, FilterComponent],
   imports: [CommonModule, SharedModule, YoutubeRoutingModule],
   providers: [SearchResultService, FilterService],
