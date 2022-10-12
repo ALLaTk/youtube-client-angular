@@ -1,10 +1,13 @@
+<app-filter></app-filter>
 <div class="search" *ngIf="this.headerService.nameVideo">
   <div class="search__content">
     <app-search-item
       *ngFor="
         let card of items
-          | sorting: 'word':this.headerService.keyWord
-          | sorting: this.headerService.valueSort:this.headerService.flagSort
+          | sorting: 'word':this.filterService.keyWord
+          | sorting
+            : this.filterService.valueSort
+            : this.filterService.flagSortDirection
       "
       [item]="card"></app-search-item>
   </div>

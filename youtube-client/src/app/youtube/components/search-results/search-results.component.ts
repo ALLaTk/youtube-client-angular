@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HeaderService } from 'src/app/core/services/header.service';
 import { SearchItem } from './models/search-item.model';
 import { SearchResultService } from '../../services/search-result.service';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-search-results',
@@ -13,6 +14,7 @@ export class SearchResultsComponent {
 
   constructor(
     public headerService: HeaderService,
-    public searchResultService: SearchResultService,
+    private searchResultService: SearchResultService,
+    public filterService: FilterService,
   ) {}
 }

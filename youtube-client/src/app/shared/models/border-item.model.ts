@@ -6,7 +6,7 @@ export enum ColorsBorder {
 }
 
 export enum Period {
-  days = 7,
+  week = 7,
   month = 30,
   halfYear = month * 6,
 }

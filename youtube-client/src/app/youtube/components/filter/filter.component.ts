@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { BySort } from 'src/app/shared/models/sorting.model';
+import { Component } from '@angular/core';
+import { HeaderService } from 'src/app/core/services/header.service';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-filter',
@@ -7,23 +8,8 @@ import { BySort } from 'src/app/shared/models/sorting.model';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent {
-  @Output() transmitkeyWordEventEmitter = new EventEmitter<string>();
-
-  @Output() transmitflagSortEventEmitter = new EventEmitter<string[]>();
-
-  public flagSortValue: string = '';
-
-  public activeClass: string = '';
-
-  public getKeyWordSearch(value: string) {
-    this.transmitkeyWordEventEmitter.emit(value);
-  }
-
-  public changeSortValue(value: string) {
-    if (this.flagSortValue === '' || this.flagSortValue === BySort.descending) {
-      this.flagSortValue = BySort.ascending;
-    } else this.flagSortValue = BySort.descending;
-    this.transmitflagSortEventEmitter.emit([value, this.flagSortValue]);
-    this.activeClass = value;
-  }
+  constructor(
+    public headerService: HeaderService,
+    public filterService: FilterService,
+  ) {}
 }

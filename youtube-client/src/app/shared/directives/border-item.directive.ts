@@ -30,9 +30,9 @@ export class BorderItemDirective implements OnInit {
 
     if (days > Period.month && days <= Period.halfYear) {
       this.colorBottom = ColorsBorder.yellow;
-    } else if (days >= Period.days && days <= Period.month) {
+    } else if (days >= Period.week && days <= Period.month) {
       this.colorBottom = ColorsBorder.green;
-    } else if (days < Period.days) {
+    } else if (days < Period.week) {
       this.colorBottom = ColorsBorder.blue;
     } else this.colorBottom = ColorsBorder.red;
   }

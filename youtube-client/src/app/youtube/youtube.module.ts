@@ -5,11 +5,13 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { SharedModule } from '../shared/shared.module';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { SearchResultService } from './services/search-result.service';
+import { FilterService } from './services/filter.service';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
-  declarations: [SearchItemComponent, SearchResultsComponent],
-  exports: [SearchItemComponent, SearchResultsComponent],
+  declarations: [SearchItemComponent, SearchResultsComponent, FilterComponent],
+  exports: [SearchItemComponent, SearchResultsComponent, FilterComponent],
   imports: [CommonModule, SharedModule, YoutubeRoutingModule],
-  providers: [SearchResultService],
+  providers: [SearchResultService, FilterService],
 })
 export class YoutubeModule {}
