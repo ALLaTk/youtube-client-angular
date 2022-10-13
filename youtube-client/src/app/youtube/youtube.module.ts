@@ -8,15 +8,16 @@ import { SearchResultService } from './services/search-result.service';
 import { FilterService } from './services/filter.service';
 import { FilterComponent } from './components/filter/filter.component';
 import { SearchResultPageComponent } from './pages/search-result-page/search-result-page.component';
+import { ItemInformationPageComponent } from './pages/item-information-page/item-information-page.component';
 
 @NgModule({
   declarations: [
-    SearchItemComponent,
-    SearchResultsComponent,
     FilterComponent,
+    SearchResultsComponent,
+    SearchItemComponent,
     SearchResultPageComponent,
+    ItemInformationPageComponent,
   ],
-  exports: [SearchItemComponent, SearchResultsComponent, FilterComponent],
   imports: [CommonModule, SharedModule, YoutubeRoutingModule],
   providers: [SearchResultService, FilterService],
 })

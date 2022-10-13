@@ -38,5 +38,7 @@
     </div>
   </div>
   <h3 class="card__titile">{{ item.snippet.title }}</h3>
-  <button class="card__button" mat-raised-button>more...</button>
+  <a [routerLink]="[item.id]" class="card__button" mat-raised-button>
+    more...
+  </a>
 </div>

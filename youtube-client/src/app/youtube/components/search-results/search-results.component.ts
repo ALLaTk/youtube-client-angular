@@ -14,7 +14,7 @@ export class SearchResultsComponent {
 
   constructor(
     public headerService: HeaderService,
-    private searchResultService: SearchResultService,
+    public searchResultService: SearchResultService,
     public filterService: FilterService,
   ) {}
 }

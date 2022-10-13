@@ -3,14 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'main',
-    loadChildren: () =>
-      import('./youtube/youtube.module').then((m) => m.YoutubeModule),
-  },
-  {
     path: '',
     redirectTo: 'main',
     pathMatch: 'full',
+  },
+  {
+    path: 'main',
+    loadChildren: () =>
+      import('./youtube/youtube.module').then((m) => m.YoutubeModule),
   },
 ];
 
