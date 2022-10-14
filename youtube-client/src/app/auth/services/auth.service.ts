@@ -23,7 +23,7 @@ export class AuthService {
     localStorage.removeItem('user');
     this.isNavigationAllowed = false;
     this.userName = 'Your Name';
-    this.router.navigate(['/login/sign-in']);
+    this.router.navigate(['/login']);
   }
 
   checkLogin(): void {
@@ -33,7 +33,6 @@ export class AuthService {
       if (login) {
         this.isNavigationAllowed = true;
         this.userName = login;
-        this.router.navigate(['/main']);
       }
     }
   }

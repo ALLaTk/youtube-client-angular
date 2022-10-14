@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { SearchItem } from '../../components/search-results/models/search-item.model';
 import { SearchResultService } from '../../services/search-result.service';
@@ -22,12 +22,14 @@ export class ItemInformationPageComponent implements OnInit {
     private route: ActivatedRoute,
     public location: Location,
     public searchResultService: SearchResultService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       const itemId = this.items.find((item) => item.id === params['id']);
       if (itemId) this.item = itemId;
+      else this.router.navigate(['/error']);
     });
   }
 

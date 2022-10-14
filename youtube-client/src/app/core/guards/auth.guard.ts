@@ -22,8 +22,7 @@ export class AuthGuard implements CanLoad {
 
   handleNavigation() {
     return (
-      this.authService.isNavigationAllowed ||
-      this.router.parseUrl('/login/sign-in')
+      this.authService.isNavigationAllowed || this.router.parseUrl('/login')
     );
   }
 }
