@@ -15,7 +15,7 @@ export class AuthComponent {
 
   constructor(private authService: AuthService) {}
 
-  setLoginValue() {
-    this.authService.checkAccess(this.loginValue);
+  setLoginValue(): void {
+    this.authService.checkIn(this.loginValue);
   }
 }

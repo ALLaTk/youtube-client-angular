@@ -31,7 +31,7 @@ export class ItemInformationPageComponent implements OnInit {
     });
   }
 
-  returnOnMainPage() {
+  returnOnMainPage(): void {
     this.location.back();
   }
 }

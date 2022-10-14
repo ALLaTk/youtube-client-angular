@@ -5,7 +5,7 @@
       #searchField
       class="header__input"
       type="text"
-      [placeholder]="placeholderText" />
+      [placeholder]="this.headerService.placeholderText" />
     <button
       class="header__button-search"
       mat-raised-button
@@ -28,7 +28,21 @@
     </button>
   </div>
   <div class="header__logo-content">
-    <p class="logo-name">Your Name</p>
-    <img class="logo-img" src="./assets/svg/logo.svg" alt="logo" width="34px" />
+    <p class="logo-name">{{ this.authService.userName }}</p>
+    <button class="header__button-login" mat-raised-button>
+      <img
+        #username
+        class="logo-img"
+        src="./assets/svg/logo.svg"
+        alt="logo"
+        width="34px" />
+    </button>
+    <button
+      *ngIf="this.authService.isNavigationAllowed"
+      class="header__exit"
+      mat-raised-button
+      (click)="this.authService.checkOut()">
+      logOut
+    </button>
   </div>
 </header>

@@ -3,6 +3,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Injectable()
 export class HeaderService {
+  public placeholderText: string = 'What do you want to find?';
+
   public nameVideo: string = '';
 
   public isToggleFilter: boolean = false;
