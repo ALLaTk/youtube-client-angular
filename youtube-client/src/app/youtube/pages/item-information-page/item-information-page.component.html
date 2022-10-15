@@ -4,7 +4,10 @@
       <button
         class="inform__close"
         mat-raised-button
-        (click)="this.returnOnMainPage()">
+        (click)="this.returnOnMainPage()"
+        appColorItem
+        [itemDate]="item.snippet.publishedAt"
+        elem="background-color">
         <img
           src="./assets/svg/close.svg"
           alt="setting"
@@ -18,8 +21,9 @@
     </div>
     <div
       class="inform__details"
-      appBorderItem
-      [itemDate]="item.snippet.publishedAt">
+      appColorItem
+      [itemDate]="item.snippet.publishedAt"
+      elem="border-bottom-color">
       <p class="inform-details-title">{{ item.snippet.title }}</p>
       <div class="inform-details-date">
         {{ item.snippet.publishedAt | date: 'fullDate' }}

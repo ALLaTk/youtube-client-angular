@@ -1,4 +1,4 @@
-export enum ColorsBorder {
+export enum Colors {
   red = '#EB5757',
   yellow = '#F2C94C',
   green = '#27AE60',

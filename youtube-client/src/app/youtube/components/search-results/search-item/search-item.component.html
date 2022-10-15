@@ -1,8 +1,9 @@
 <div
   class="card"
   *ngIf="item"
-  appBorderItem
-  [itemDate]="item.snippet.publishedAt">
+  appColorItem
+  [itemDate]="item.snippet.publishedAt"
+  elem="border-bottom-color">
   <img
     class="card__image"
     src="{{ item.snippet.thumbnails.medium.url }}"
