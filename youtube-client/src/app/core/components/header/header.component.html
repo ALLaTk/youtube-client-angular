@@ -1,0 +1,48 @@
+<header class="header">
+  <div class="header__search-block">
+    <button class="header__button-logo" mat-raised-button>►</button>
+    <input
+      #searchField
+      class="header__input"
+      type="text"
+      [placeholder]="this.headerService.placeholderText" />
+    <button
+      class="header__button-search"
+      mat-raised-button
+      color="primary"
+      (click)="
+        this.headerService.getRequestNameVideo(searchField.value);
+        searchField.value = ''
+      ">
+      search
+    </button>
+    <button
+      class="header__button-setting"
+      mat-raised-button
+      (click)="this.headerService.toggleFilterBlock()">
+      <img
+        src="./assets/svg/settings.svg"
+        alt="setting"
+        width="34px"
+        height="38px" />
+    </button>
+  </div>
+  <div class="header__logo-content">
+    <p class="logo-name">{{ this.authService.userName }}</p>
+    <button class="header__button-login" mat-raised-button>
+      <img
+        #username
+        class="logo-img"
+        src="./assets/svg/logo.svg"
+        alt="logo"
+        width="34px" />
+    </button>
+    <button
+      *ngIf="this.authService.isNavigationAllowed"
+      class="header__exit"
+      mat-raised-button
+      (click)="this.authService.checkOut()">
+      logOut
+    </button>
+  </div>
+</header>

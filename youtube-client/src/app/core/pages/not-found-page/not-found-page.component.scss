@@ -1,0 +1,26 @@
+.error {
+  display: flex;
+  margin: 100px auto;
+  width: 360px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  .error__image {
+    width: 99px;
+    height: 90px;
+    margin-right: 26px;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 10px;
+  }
+  .error__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: #828282;
+    margin: 0px;
+    height: 90px;
+  }
+}

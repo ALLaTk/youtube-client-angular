@@ -1,0 +1,69 @@
+<div class="inform" *ngIf="item">
+  <div class="inform__comtainer">
+    <div class="inform__block-image">
+      <button
+        class="inform__close"
+        mat-raised-button
+        (click)="this.returnOnMainPage()"
+        appColorItem
+        [itemDate]="item.snippet.publishedAt"
+        elem="background-color">
+        <img
+          src="./assets/svg/close.svg"
+          alt="setting"
+          width="16px"
+          height="16px" />
+      </button>
+      <img
+        src="{{ item.snippet.thumbnails.medium.url }}"
+        alt="image-video"
+        class="inform__image" />
+    </div>
+    <div
+      class="inform__details"
+      appColorItem
+      [itemDate]="item.snippet.publishedAt"
+      elem="border-bottom-color">
+      <p class="inform-details-title">{{ item.snippet.title }}</p>
+      <div class="inform-details-date">
+        {{ item.snippet.publishedAt | date: 'fullDate' }}
+      </div>
+      <p class="inform-details-description">Description:</p>
+      <div class="inform-details-text">{{ item.snippet.description }}</div>
+      <div class="card__statistics">
+        <div class="card__statistics-iform">
+          <img
+            class="card__statistics-icon"
+            src="./assets/svg/viewed.svg"
+            alt="viewed" />
+          <p class="card__statistics-count">{{ item.statistics.viewCount }}</p>
+        </div>
+        <div class="card__statistics-iform">
+          <img
+            class="card__statistics-icon"
+            src="./assets/svg/liked.svg"
+            alt="liked" />
+          <p class="card__statistics-count">{{ item.statistics.likeCount }}</p>
+        </div>
+        <div class="card__statistics-iform">
+          <img
+            class="card__statistics-icon"
+            src="./assets/svg/dislike.svg"
+            alt="dislike" />
+          <p class="card__statistics-count">
+            {{ item.statistics.dislikeCount }}
+          </p>
+        </div>
+        <div class="card__statistics-iform">
+          <img
+            class="card__statistics-icon"
+            src="./assets/svg/comments.svg"
+            alt="comments" />
+          <p class="card__statistics-count">
+            {{ item.statistics.commentCount }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="filter" *ngIf="this.headerService.isToggleFilter">
+  <div class="fiter__content">
+    <p class="filter__name">Sorting by:</p>
+    <div class="filter__buttons-block">
+      <button
+        class="filter__button data"
+        mat-flat-button
+        (click)="this.filterService.changeSortValue('date')"
+        [class.active]="this.filterService.activeClass === 'date'">
+        date
+      </button>
+      <button
+        class="filter__button views"
+        mat-flat-button
+        (click)="this.filterService.changeSortValue('views')"
+        [class.active]="this.filterService.activeClass === 'views'">
+        count of views
+      </button>
+      <div class="filter__button word" mat-flat-button>by word or sentance</div>
+    </div>
+    <input
+      #keywordInput
+      class="filter__input"
+      type="text"
+      (input)="this.filterService.getSearchKeyWord(keywordInput.value)" />
+    <div class="filter__sort">{{ this.filterService.sortingDirection }}</div>
+  </div>
+</div>
