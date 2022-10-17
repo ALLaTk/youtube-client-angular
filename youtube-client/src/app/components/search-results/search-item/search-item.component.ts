@@ -7,5 +7,6 @@ import { SearchItem } from '../models/search-item.model';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemComponent {
-  @Input() public item!: SearchItem;
+  @Input()
+  public item!: SearchItem;
 }

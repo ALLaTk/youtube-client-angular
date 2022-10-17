@@ -1,2 +1,10 @@
-<app-header></app-header>
+<app-header
+  (nameVideoEventEmitter)="getRequestValue($event)"
+  (keyWordEventEmitter)="getKeywordValue($event)"
+  (flagDateEventEmitter)="getDataSortValue($event)"></app-header>
+<app-search-results
+  [searchNameVideo]="nameVideo"
+  [searchkeyWord]="keyWord"
+  [valueSort]="sortData[0]"
+  [flagSort]="sortData[1]"></app-search-results>
 <router-outlet></router-outlet>

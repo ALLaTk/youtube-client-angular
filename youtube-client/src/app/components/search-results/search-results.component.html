@@ -1,0 +1,11 @@
+<div class="search">
+  <div class="search__content">
+    <app-search-item
+      *ngFor="
+        let card of items
+          | sorting: 'word':searchkeyWord
+          | sorting: valueSort:flagSort
+      "
+      [item]="card"></app-search-item>
+  </div>
+</div>
