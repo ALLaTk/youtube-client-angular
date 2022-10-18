@@ -19,7 +19,7 @@ export class ItemInformationPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    public location: Location,
+    private location: Location,
     public dataService: DataService,
     private router: Router,
   ) {}

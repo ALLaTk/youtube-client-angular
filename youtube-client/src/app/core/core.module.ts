@@ -10,6 +10,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { ApiKeyInterceptor } from './interceptor/api-key.interceptor';
 import { ApiUrlInterceptor } from './interceptor/api-url.interceptor';
 import { DataService } from './services/data.service';
+import { SearchResultService } from './services/search-result.service';
 
 @NgModule({
   declarations: [HeaderComponent, NotFoundPageComponent],
@@ -20,6 +21,7 @@ import { DataService } from './services/data.service';
     AuthService,
     AuthGuard,
     DataService,
+    SearchResultService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiKeyInterceptor,

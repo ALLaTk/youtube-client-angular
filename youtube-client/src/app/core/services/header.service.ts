@@ -18,10 +18,9 @@ export class HeaderService {
       this.isToggleFilter = !this.isToggleFilter;
   }
 
-  public getRequestNameVideo(value: string) {
-    const textInput = value.trim();
-    if (textInput && this.authService.isNavigationAllowed) {
-      this.dataService.getDataRequest(textInput);
+  public getNameVideo(value: string) {
+    if (this.authService.isNavigationAllowed) {
+      this.dataService.getDataRequest(value);
     }
   }
 }

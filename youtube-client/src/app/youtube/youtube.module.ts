@@ -4,7 +4,7 @@ import { SearchItemComponent } from './components/search-results/search-item/sea
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SharedModule } from '../shared/shared.module';
 import { YoutubeRoutingModule } from './youtube-routing.module';
-import { SearchResultService } from './services/search-result.service';
+import { SearchResultService } from '../core/services/search-result.service';
 import { FilterService } from './services/filter.service';
 import { FilterComponent } from './components/filter/filter.component';
 import { SearchResultPageComponent } from './pages/search-result-page/search-result-page.component';

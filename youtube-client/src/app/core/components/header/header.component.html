@@ -1,21 +1,13 @@
 <header class="header">
   <div class="header__search-block">
     <button class="header__button-logo" mat-raised-button>►</button>
-    <input
-      #searchField
-      class="header__input"
-      type="text"
-      [placeholder]="this.headerService.placeholderText" />
-    <button
-      class="header__button-search"
-      mat-raised-button
-      color="primary"
-      (click)="
-        this.headerService.getRequestNameVideo(searchField.value);
-        searchField.value = ''
-      ">
-      search
-    </button>
+    <form action="" (submit)="(false)">
+      <input
+        #searchField
+        class="header__input"
+        type="text"
+        [placeholder]="this.headerService.placeholderText" />
+    </form>
     <button
       class="header__button-setting"
       mat-raised-button
