@@ -26,19 +26,12 @@
     <div class="card__statistics-iform">
       <img
         class="card__statistics-icon"
-        src="./assets/svg/dislike.svg"
-        alt="dislike" />
-      <p class="card__statistics-count">{{ item.statistics.dislikeCount }}</p>
-    </div>
-    <div class="card__statistics-iform">
-      <img
-        class="card__statistics-icon"
         src="./assets/svg/comments.svg"
         alt="comments" />
       <p class="card__statistics-count">{{ item.statistics.commentCount }}</p>
     </div>
   </div>
-  <h3 class="card__titile">{{ item.snippet.title }}</h3>
+  <h3 class="card__titile">{{ item.snippet.title | slice: 0:35 }}...</h3>
   <a [routerLink]="[item.id]" class="card__button" mat-raised-button>
     more...
   </a>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/core/services/data.service';
 import { Login } from '../models/login.model';
 
 @Injectable()
@@ -8,7 +9,7 @@ export class AuthService {
 
   userName: string = 'Your Name';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private dataService: DataService) {}
 
   checkIn(loginValue: Login): void {
     if (loginValue.login && loginValue.password) {
@@ -24,6 +25,7 @@ export class AuthService {
     this.isNavigationAllowed = false;
     this.userName = 'Your Name';
     this.router.navigate(['/login']);
+    this.dataService.data$.next(null);
   }
 
   checkLogin(): void {

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { HeaderService } from 'src/app/core/services/header.service';
-import { SearchItem } from './models/search-item.model';
-import { SearchResultService } from '../../services/search-result.service';
+import { DataService } from 'src/app/core/services/data.service';
 import { FilterService } from '../../services/filter.service';
 
 @Component({
@@ -10,11 +8,8 @@ import { FilterService } from '../../services/filter.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  items: SearchItem[] = this.searchResultService.items;
-
   constructor(
-    public headerService: HeaderService,
-    public searchResultService: SearchResultService,
+    public dataService: DataService,
     public filterService: FilterService,
   ) {}
 }
