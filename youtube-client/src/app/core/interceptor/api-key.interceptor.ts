@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiKeyInterceptor implements HttpInterceptor {
-  private key: string = 'AIzaSyDhXUPaDxozUfQJDU_0StBmmCfc8USqctU';
+  private key: string = 'AIzaSyApHVlWqwDay7INdWaGRFUFLZyfOwtwu68';
 
   intercept(
     request: HttpRequest<any>,

@@ -30,11 +30,11 @@
         width="34px" />
     </button>
     <button
-      *ngIf="this.authService.isNavigationAllowed"
       class="header__exit"
       mat-raised-button
-      (click)="this.authService.checkOut()">
-      logOut
+      [ngStyle]="{ 'background-color': this.authService.colorButtonLogin }"
+      (click)="this.authService.checkOut(); searchField.value = ''">
+      {{ this.authService.login }}
     </button>
   </div>
 </header>

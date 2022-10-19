@@ -30,9 +30,12 @@ export class ItemInformationPageComponent implements OnInit, OnDestroy {
     });
 
     this.route.params.subscribe((params) => {
-      const itemId = this.items.find((item) => item.id === params['id']);
-      if (itemId) this.item = itemId;
-      else this.router.navigate(['/error']);
+      if (this.items) {
+        const itemId = this.items.find((item) => item.id === params['id']);
+        this.item = itemId;
+      } else {
+        this.router.navigate(['/error']);
+      }
     });
   }
 

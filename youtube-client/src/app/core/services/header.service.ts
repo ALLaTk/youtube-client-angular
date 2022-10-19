@@ -14,12 +14,11 @@ export class HeaderService {
   ) {}
 
   public toggleFilterBlock(): void {
-    if (this.authService.isNavigationAllowed)
-      this.isToggleFilter = !this.isToggleFilter;
+    if (this.authService.isToggle) this.isToggleFilter = !this.isToggleFilter;
   }
 
   public getNameVideo(value: string) {
-    if (this.authService.isNavigationAllowed) {
+    if (this.authService.isToggle) {
       this.dataService.getDataRequest(value);
     }
   }
