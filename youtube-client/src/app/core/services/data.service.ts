@@ -6,9 +6,7 @@ import { SearchResponse } from 'src/app/youtube/models/search-response.model';
 
 @Injectable()
 export class DataService {
-  // Which one is better to use?
   public data$ = new ReplaySubject<SearchItem[] | null>();
-  // public data$ = new BehaviorSubject<SearchItem[] | null>(null);
 
   constructor(private httpClient: HttpClient) {}
 
@@ -28,7 +26,7 @@ export class DataService {
     );
   }
 
-  getVideoRequest(value: string) {
+  getVideoRequest(value: string): Observable<SearchResponse> {
     const params = new HttpParams()
       .set('id', value)
       .set('part', 'snippet,statistics');
@@ -42,7 +40,7 @@ export class DataService {
     );
   }
 
-  getDataRequest(value: string) {
+  getDataRequest(value: string): void {
     this.getSearchRequest(value).subscribe((response) => {
       const idRequest: string = response.items
         .map((elem) => elem.id.videoId)
