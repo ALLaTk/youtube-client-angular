@@ -1,13 +1,73 @@
 <div class="auth">
   <h2 class="auth__title">Login</h2>
-  <p class="auth__subtitle">login</p>
-  <input class="auth__input" type="text" [(ngModel)]="loginValue.login" />
-  <p class="auth__subtitle">password</p>
-  <input
-    class="auth__input"
-    type="password"
-    [(ngModel)]="loginValue.password" />
-  <button class="auth__submit" mat-raised-button (click)="setLoginValue()">
-    Login
-  </button>
+  <form
+    action=""
+    class="form"
+    [formGroup]="form"
+    (ngSubmit)="form.valid && setLoginValue()">
+    <div class="form__login">
+      <input
+        class="auth__input-login"
+        type="email"
+        placeholder="Email"
+        formControlName="login" />
+      <div
+        class="error-message"
+        *ngIf="form.controls['login'].errors?.['required'] && form.controls['login'].touched">
+        Please enter a login email
+      </div>
+      <div
+        class="error-message"
+        *ngIf="form.controls['login'].errors?.['pattern'] && form.controls['login'].touched">
+        The login email is invalid
+      </div>
+    </div>
+    <div class="form__password">
+      <input
+        class="auth__input-password"
+        type="password"
+        placeholder="Password"
+        formControlName="password" />
+      <div
+        class="error-message"
+        *ngIf="form.controls['password'].errors?.['required'] && form.controls['password'].touched">
+        Please enter a password
+      </div>
+      <div
+        class="error-message"
+        *ngIf="form.controls['password'].errors?.['pattern'] && form.controls['password'].touched">
+        Your password isn't strong enough:
+      </div>
+      <div
+        class="error-message"
+        *ngIf="form.controls['password'].errors?.['minlength'] && form.controls['password'].touched">
+        - at least 8 characters
+      </div>
+      <div
+        class="error-message"
+        *ngIf="
+          form.controls['password'].errors?.['case'] &&
+          form.controls['password'].touched">
+        - a mixture of both uppercase and lowercase letters
+      </div>
+      <div
+        class="error-message"
+        *ngIf="form.controls['password'].errors?.['simbol'] &&
+        form.controls['password'].touched">
+        - inclusion of at least one special character
+      </div>
+      <div
+        class="error-message"
+        *ngIf="form.controls['password'].errors?.['number'] &&
+        form.controls['password'].touched">
+        - a mixture of letters and numbers
+      </div>
+    </div>
+    <button
+      class="auth__submit example-action-button"
+      mat-raised-button
+      type="submit">
+      Login
+    </button>
+  </form>
 </div>

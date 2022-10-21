@@ -8,7 +8,7 @@ import { Login, LoginButton } from '../models/login.model';
 export class AuthService {
   private isNavigationAllowed = new BehaviorSubject<boolean>(false);
 
-  isToggle: boolean = false;
+  isToggleFilter: boolean = false;
 
   userName: string = 'Your Name';
 
@@ -19,21 +19,19 @@ export class AuthService {
   constructor(private router: Router, private dataService: DataService) {}
 
   checkIn(loginValue: Login): void {
-    if (loginValue.login && loginValue.password) {
-      localStorage.setItem('user', JSON.stringify(loginValue));
-      this.isNavigationAllowed.next(true);
-      this.isToggle = true;
-      this.userName = loginValue.login;
-      this.login = LoginButton.loginOut;
-      this.colorButtonLogin = LoginButton.loginColorOut;
-      this.router.navigate(['/main']);
-    }
+    localStorage.setItem('user', JSON.stringify(loginValue));
+    this.isNavigationAllowed.next(true);
+    this.isToggleFilter = true;
+    this.userName = loginValue.login;
+    this.login = LoginButton.loginOut;
+    this.colorButtonLogin = LoginButton.loginColorOut;
+    this.router.navigate(['/main']);
   }
 
   checkOut(): void {
     localStorage.removeItem('user');
     this.isNavigationAllowed.next(false);
-    this.isToggle = false;
+    this.isToggleFilter = false;
     this.userName = 'Your Name';
     this.login = LoginButton.loginIn;
     this.colorButtonLogin = LoginButton.loginColorIn;
@@ -47,7 +45,7 @@ export class AuthService {
       const login: string = JSON.parse(loginValue)?.login;
       if (login) {
         this.isNavigationAllowed.next(true);
-        this.isToggle = true;
+        this.isToggleFilter = true;
         this.login = LoginButton.loginOut;
         this.colorButtonLogin = LoginButton.loginColorOut;
         this.userName = login;

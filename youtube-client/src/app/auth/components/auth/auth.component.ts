@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Login } from '../../models/login.model';
+import { PasswordValidatorService } from '../../services/password-validator.service';
 
 @Component({
   selector: 'app-auth',
@@ -8,14 +9,25 @@ import { Login } from '../../models/login.model';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-  loginValue: Login = {
-    login: '',
-    password: '',
-  };
+  form: FormGroup = new FormGroup({
+    login: new FormControl('', [
+      Validators.required,
+      Validators.pattern(this.passwordValidaror.emailPattern),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(this.passwordValidaror.passwordPattern),
+      this.passwordValidaror.createPasswordValidator(),
+    ]),
+  });
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    public passwordValidaror: PasswordValidatorService,
+  ) {}
 
-  setLoginValue(): void {
-    this.authService.checkIn(this.loginValue);
+  setLoginValue() {
+    this.authService.checkIn(this.form.value);
   }
 }
