@@ -1,27 +1,27 @@
-.auth {
+.admin {
   position: relative;
   max-width: 310px;
-  height: 250px;
+  height: 445px;
   display: flex;
   padding: 20px;
   flex-direction: column;
   margin: 50px auto;
   background: #F2F2F2;
-  .auth__title{
+  .admin__title{
     margin-bottom: 0px;
     font-weight: 700;
     font-size: 18px;
   }
+  .admin__subtitle{
+    margin-bottom: 0px;
+    color: #828282;;
+  }
   .form {
     width: 100%;
-    .form__login {
+    .form-admin {
       height: 75px;
-      margin-top: 5px;
     }
-    .form__password {
-      height: 100px;
-    }
-    .auth__input {
+    .admin__input {
       width: 100%;
       border: none;
       box-sizing: border-box;
@@ -33,10 +33,10 @@
       outline:none;
       border-bottom: 2px solid transparent;
     }
-    .auth__input.ng-touched.ng-invalid {
+    .admin__input.ng-touched.ng-invalid {
       border-color: #f34c4c;
     }
-    .auth__submit {
+    .admin__submit {
       position: absolute;
       background: #2F80ED;
       height: 30px;

@@ -11,6 +11,7 @@ import { ApiKeyInterceptor } from './interceptor/api-key.interceptor';
 import { ApiUrlInterceptor } from './interceptor/api-url.interceptor';
 import { DataService } from './services/data.service';
 import { SearchResultService } from './services/search-result.service';
+import { AdminService } from '../admin/services/admin.service';
 
 @NgModule({
   declarations: [HeaderComponent, NotFoundPageComponent],
@@ -22,6 +23,7 @@ import { SearchResultService } from './services/search-result.service';
     AuthGuard,
     DataService,
     SearchResultService,
+    AdminService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiKeyInterceptor,

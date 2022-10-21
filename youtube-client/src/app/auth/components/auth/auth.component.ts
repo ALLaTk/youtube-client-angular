@@ -9,7 +9,7 @@ import { PasswordValidatorService } from '../../services/password-validator.serv
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-  form: FormGroup = new FormGroup({
+  formLogin: FormGroup = new FormGroup({
     login: new FormControl('', [
       Validators.required,
       Validators.pattern(this.passwordValidaror.emailPattern),
@@ -28,6 +28,6 @@ export class AuthComponent {
   ) {}
 
   setLoginValue() {
-    this.authService.checkIn(this.form.value);
+    this.authService.checkIn(this.formLogin.value);
   }
 }

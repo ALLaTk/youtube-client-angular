@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataService } from './data.service';
 
@@ -8,9 +9,12 @@ export class HeaderService {
 
   public isToggleFilter: boolean = false;
 
+  public isAddCard: boolean = true;
+
   constructor(
     public authService: AuthService,
     private dataService: DataService,
+    private router: Router,
   ) {}
 
   public toggleFilterBlock(): void {
@@ -22,5 +26,11 @@ export class HeaderService {
     if (this.authService.isToggleFilter) {
       this.dataService.getDataRequest(value);
     }
+  }
+
+  createCard() {
+    if (this.isAddCard) this.router.navigate(['/admin']);
+    else this.router.navigate(['/main']);
+    this.isAddCard = !this.isAddCard;
   }
 }

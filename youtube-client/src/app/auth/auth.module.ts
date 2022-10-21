@@ -11,7 +11,6 @@ import { PasswordValidatorService } from './services/password-validator.service'
   declarations: [AuthComponent, SignInPageComponent],
   imports: [
     CommonModule,
-    FormsModule,
     SharedModule,
     AuthRoutingModule,
     FormsModule,
