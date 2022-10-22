@@ -14,7 +14,7 @@ export class DateValidatorService {
       const controlDate = new Date(control.value);
       const currentDate = new Date();
 
-      if (controlDate < currentDate) {
+      if (controlDate > currentDate) {
         return { hasDate: { value: true } };
       }
       return null;
