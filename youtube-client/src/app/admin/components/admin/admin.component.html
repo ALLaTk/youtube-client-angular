@@ -38,7 +38,7 @@
       <input class="admin__input" type="url" formControlName="image" />
       <div
         class="error-message"
-        *ngIf="formAdmin.controls['image'].errors?.['image'] && formAdmin.controls['image'].touched">
+        *ngIf="formAdmin.controls['image'].errors?.['required'] && formAdmin.controls['image'].touched">
         Please enter a link to the image
       </div>
       <div
