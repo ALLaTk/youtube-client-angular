@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataControlService } from './data-control.service';
 
@@ -8,8 +9,11 @@ export class HeaderService {
 
   public isToggleFilter: boolean = false;
 
+  public isAddCard: boolean = true;
+
   constructor(
     public authService: AuthService,
+    private router: Router,
     private dataControl: DataControlService,
   ) {}
 
@@ -21,5 +25,11 @@ export class HeaderService {
     if (this.authService.isToggle) {
       this.dataControl.getDataRequest(value);
     }
+  }
+
+  createCard() {
+    if (this.isAddCard) this.router.navigate(['/admin']);
+    else this.router.navigate(['/main']);
+    this.isAddCard = !this.isAddCard;
   }
 }

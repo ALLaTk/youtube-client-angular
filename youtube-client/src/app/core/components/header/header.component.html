@@ -1,6 +1,14 @@
 <header class="header">
   <div class="header__search-block">
-    <button class="header__button-logo" mat-raised-button>►</button>
+    <div class="add-card-block">
+      <button
+        class="header__button-logo"
+        mat-raised-button
+        (click)="this.headerService.createCard()">
+        ►
+      </button>
+      <p class="add-card" *ngIf="this.authService.isToggle">Add card</p>
+    </div>
     <form action="" (submit)="(false)">
       <input
         #searchField

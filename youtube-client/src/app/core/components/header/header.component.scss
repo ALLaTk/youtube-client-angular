@@ -16,15 +16,24 @@ $shadow : 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0
     padding-left: 185px;
     margin: 0 auto;
     width: 100%;
-    .header__button-logo {
-      height: 40px;
-      min-width: 45px;
-      border-radius: 8px;
-      padding-left: 18px;
-      font-size: 25px;
-      margin-right: 10px;
-      background-color: $backgroundColor;
-      color: $colorText;
+    .add-card-block {
+      height: 37px;
+      display: flex;
+      flex-direction: column;
+      .header__button-logo {
+        height: 40px;
+        min-width: 45px;
+        border-radius: 8px;
+        padding-left: 18px;
+        font-size: 25px;
+        margin-right: 10px;
+        background-color: $backgroundColor;
+        color: $colorText;
+      }
+      .add-card {
+        margin: 0px;
+        color: #e20bf5;
+      }
     }
     .header__input {
       border: none;
@@ -64,11 +73,12 @@ $shadow : 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0
       margin: 0 10px;
     }
     .header__button-login {
-      height: 34px;
-      min-width: 34px;
+      height: 30px;
+      min-width: 30px;
       padding: 0;
       background-color: transparent;
       display: flex;
+      line-height: 0px;
       justify-content: center;
       align-items: center;
       border-radius: 8px;

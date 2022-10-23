@@ -1,0 +1,85 @@
+<div class="admin">
+  <h2 class="admin__title">Create new card</h2>
+  <form
+    action=""
+    class="form"
+    [formGroup]="formAdmin"
+    (ngSubmit)="formAdmin.valid && this.adminService.createCard()">
+    <div class="form-admin">
+      <p class="admin__subtitle">title</p>
+      <input class="admin__input" type="text" formControlName="title" />
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['title'].errors?.['required'] && formAdmin.controls['title'].touched">
+        Please enter a title
+      </div>
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['title'].errors?.['minlength'] && formAdmin.controls['title'].touched">
+        The title is too short
+      </div>
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['title'].errors?.['maxlength'] && formAdmin.controls['title'].touched">
+        The title is too long
+      </div>
+    </div>
+    <div class="form-admin">
+      <p class="admin__subtitle">discription</p>
+      <input class="admin__input" type="text" formControlName="discription" />
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['discription'].errors?.['required'] && formAdmin.controls['discription'].touched">
+        Please enter a discription
+      </div>
+    </div>
+    <div class="form-admin">
+      <p class="admin__subtitle">img</p>
+      <input class="admin__input" type="url" formControlName="image" />
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['image'].errors?.['required'] && formAdmin.controls['image'].touched">
+        Please enter a link to the image
+      </div>
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['image'].errors?.['pattern'] && formAdmin.controls['image'].touched">
+        The image link is invalid
+      </div>
+    </div>
+    <div class="form-admin">
+      <p class="admin__subtitle">link video</p>
+      <input class="admin__input" type="url" formControlName="video" />
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['video'].errors?.['required'] && formAdmin.controls['video'].touched">
+        Please enter a link to the video
+      </div>
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['video'].errors?.['pattern'] && formAdmin.controls['video'].touched">
+        The video link is invalid
+      </div>
+    </div>
+    <div class="form-admin">
+      <p class="admin__subtitle">date</p>
+      <input class="admin__input" type="date" formControlName="date" />
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['date'].errors?.['required'] && formAdmin.controls['date'].touched">
+        Please enter a creation date
+      </div>
+      <div
+        class="error-message"
+        *ngIf="formAdmin.controls['date'].errors?.['hasDate'] && formAdmin.controls['date'].touched">
+        The date is invalid
+      </div>
+    </div>
+    <button
+      class="admin__submit example-action-button"
+      mat-raised-button
+      type="submit">
+      Create card
+    </button>
+  </form>
+</div>
