@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { DataService } from 'src/app/core/services/data.service';
-import { Subscription } from 'rxjs';
+import { Subscription, tap } from 'rxjs';
+import { DataControlService } from 'src/app/core/services/data-control.service';
 import { SearchItem } from '../../models/search-item.model';
 
 @Component({
@@ -20,14 +20,18 @@ export class ItemInformationPageComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    public dataService: DataService,
+    public dataControl: DataControlService,
     private router: Router,
   ) {}
 
   ngOnInit(): void {
-    this.itemsSubscribe = this.dataService.data$.subscribe((response) => {
-      if (response) this.items = response;
-    });
+    this.itemsSubscribe = this.dataControl.dataSubj$
+      .pipe(
+        tap((response) => {
+          if (response) this.items = response;
+        }),
+      )
+      .subscribe();
 
     this.route.params.subscribe((params) => {
       if (this.items) {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { DataService } from './data.service';
+import { DataControlService } from './data-control.service';
 
 @Injectable()
 export class HeaderService {
@@ -13,18 +13,17 @@ export class HeaderService {
 
   constructor(
     public authService: AuthService,
-    private dataService: DataService,
     private router: Router,
+    private dataControl: DataControlService,
   ) {}
 
   public toggleFilterBlock(): void {
-    if (this.authService.isToggleFilter)
-      this.isToggleFilter = !this.isToggleFilter;
+    if (this.authService.isToggle) this.isToggleFilter = !this.isToggleFilter;
   }
 
   public getNameVideo(value: string) {
-    if (this.authService.isToggleFilter) {
-      this.dataService.getDataRequest(value);
+    if (this.authService.isToggle) {
+      this.dataControl.getDataRequest(value);
     }
   }
 

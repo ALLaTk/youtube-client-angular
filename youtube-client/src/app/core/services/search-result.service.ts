@@ -25,9 +25,9 @@ export class SearchResultService implements OnDestroy {
         filter((text) => (<string>text.trim()).length > 3),
         debounceTime(500),
         distinctUntilChanged(),
-        tap((value) => value),
+        tap((value) => this.headerService.getNameVideo(value)),
       )
-      .subscribe((value) => this.headerService.getNameVideo(value));
+      .subscribe();
   }
 
   ngOnDestroy(): void {
