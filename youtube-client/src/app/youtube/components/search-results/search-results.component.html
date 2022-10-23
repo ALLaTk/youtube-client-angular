@@ -1,8 +1,8 @@
-<div class="search" *ngIf="this.headerService.nameVideo">
+<div class="search" *ngIf="this.dataControl.dataSubj$ | async as data">
   <div class="search__content">
     <app-search-item
       *ngFor="
-        let card of items
+        let card of data
           | sorting: 'word':this.filterService.keyWord
           | sorting
             : this.filterService.valueSort

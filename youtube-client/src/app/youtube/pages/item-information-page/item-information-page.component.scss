@@ -55,7 +55,13 @@
         font-weight: 400;
         font-size: 12px;
         line-height: 14px;
+        height: 220px;
+        overflow-y: auto;
         color: #828282;
+      }
+      .inform-details-text::-webkit-scrollbar {
+        width: 5px;
+        background: rgb(102, 172, 174);
       }
       .card__statistics {
         display: flex;
