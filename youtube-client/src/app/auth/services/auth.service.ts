@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { DataService } from 'src/app/core/services/data.service';
+import { DataControlService } from 'src/app/core/services/data-control.service';
 import { Login, LoginButton } from '../models/login.model';
 
 @Injectable()
 export class AuthService {
-  private isNavigationAllowed = new BehaviorSubject<boolean>(false);
+  private isNavigationAllowedSubj$ = new BehaviorSubject<boolean>(false);
 
   isToggle: boolean = false;
 
@@ -16,12 +16,15 @@ export class AuthService {
 
   colorButtonLogin: string = LoginButton.loginColorIn;
 
-  constructor(private router: Router, private dataService: DataService) {}
+  constructor(
+    private router: Router,
+    private dataControl: DataControlService,
+  ) {}
 
   checkIn(loginValue: Login): void {
     if (loginValue.login && loginValue.password) {
       localStorage.setItem('user', JSON.stringify(loginValue));
-      this.isNavigationAllowed.next(true);
+      this.isNavigationAllowedSubj$.next(true);
       this.isToggle = true;
       this.userName = loginValue.login;
       this.login = LoginButton.loginOut;
@@ -32,13 +35,13 @@ export class AuthService {
 
   checkOut(): void {
     localStorage.removeItem('user');
-    this.isNavigationAllowed.next(false);
+    this.isNavigationAllowedSubj$.next(false);
     this.isToggle = false;
     this.userName = 'Your Name';
     this.login = LoginButton.loginIn;
     this.colorButtonLogin = LoginButton.loginColorIn;
     this.router.navigate(['/login']);
-    this.dataService.data$.next(null);
+    this.dataControl.dataSubj$.next(null);
   }
 
   checkLogin(): void {
@@ -46,7 +49,7 @@ export class AuthService {
     if (loginValue) {
       const login: string = JSON.parse(loginValue)?.login;
       if (login) {
-        this.isNavigationAllowed.next(true);
+        this.isNavigationAllowedSubj$.next(true);
         this.isToggle = true;
         this.login = LoginButton.loginOut;
         this.colorButtonLogin = LoginButton.loginColorOut;
@@ -56,6 +59,6 @@ export class AuthService {
   }
 
   returnIsValueLogin(): Observable<boolean> {
-    return this.isNavigationAllowed;
+    return this.isNavigationAllowedSubj$;
   }
 }

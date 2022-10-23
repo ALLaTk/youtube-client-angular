@@ -9,8 +9,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { ApiKeyInterceptor } from './interceptor/api-key.interceptor';
 import { ApiUrlInterceptor } from './interceptor/api-url.interceptor';
-import { DataService } from './services/data.service';
+import { DataApiService } from './services/data-api.service';
 import { SearchResultService } from './services/search-result.service';
+import { DataControlService } from './services/data-control.service';
 
 @NgModule({
   declarations: [HeaderComponent, NotFoundPageComponent],
@@ -20,8 +21,9 @@ import { SearchResultService } from './services/search-result.service';
     HeaderService,
     AuthService,
     AuthGuard,
-    DataService,
+    DataApiService,
     SearchResultService,
+    DataControlService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiKeyInterceptor,

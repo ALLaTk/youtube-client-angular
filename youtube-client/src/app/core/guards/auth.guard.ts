@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, tap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Injectable()
@@ -29,9 +29,12 @@ export class AuthGuard implements CanActivate, OnDestroy {
     let isValueLogin!: boolean;
     this.loginSubscribe = this.authService
       .returnIsValueLogin()
-      .subscribe((v) => {
-        isValueLogin = v;
-      });
+      .pipe(
+        tap((v) => {
+          isValueLogin = v;
+        }),
+      )
+      .subscribe();
     return isValueLogin || this.router.parseUrl('/login');
   }
 

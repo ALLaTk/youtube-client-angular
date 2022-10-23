@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from 'src/app/core/services/data.service';
+import { DataControlService } from 'src/app/core/services/data-control.service';
 import { FilterService } from '../../services/filter.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { FilterService } from '../../services/filter.service';
 })
 export class SearchResultsComponent {
   constructor(
-    public dataService: DataService,
+    public dataControl: DataControlService,
     public filterService: FilterService,
   ) {}
 }

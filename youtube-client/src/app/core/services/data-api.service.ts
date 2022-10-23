@@ -1,13 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, Observable, ReplaySubject, retry } from 'rxjs';
-import { SearchItem } from 'src/app/youtube/models/search-item.model';
+import { catchError, EMPTY, Observable, retry } from 'rxjs';
 import { SearchResponse } from 'src/app/youtube/models/search-response.model';
 
 @Injectable()
-export class DataService {
-  public data$ = new ReplaySubject<SearchItem[] | null>();
-
+export class DataApiService {
   constructor(private httpClient: HttpClient) {}
 
   getSearchRequest(value: string): Observable<SearchResponse> {
@@ -38,17 +35,5 @@ export class DataService {
         return EMPTY;
       }),
     );
-  }
-
-  getDataRequest(value: string): void {
-    this.getSearchRequest(value).subscribe((response) => {
-      const idRequest: string = response.items
-        .map((elem) => elem.id.videoId)
-        .join();
-
-      this.getVideoRequest(idRequest).subscribe((newResponse) => {
-        this.data$.next(newResponse.items);
-      });
-    });
   }
 }
