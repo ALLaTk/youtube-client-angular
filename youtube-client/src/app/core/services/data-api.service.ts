@@ -12,7 +12,7 @@ export class DataApiService {
       .set('type', 'video')
       .set('part', 'snippet')
       .set('maxResults', 12)
-      .set('q', value);
+      .set('q', <string>value);
 
     return this.httpClient.get<SearchResponse>('search/', { params }).pipe(
       retry(4),

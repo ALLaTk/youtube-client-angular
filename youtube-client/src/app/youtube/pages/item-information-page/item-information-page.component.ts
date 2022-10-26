@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Subscription, tap } from 'rxjs';
-import { DataControlService } from 'src/app/core/services/data-control.service';
+import { Store } from '@ngrx/store';
+import { selectCurrentYoutube } from 'src/app/store/selectors/youtube.selector';
 import { SearchItem } from '../../models/search-item.model';
 
 @Component({
@@ -17,15 +18,17 @@ export class ItemInformationPageComponent implements OnInit, OnDestroy {
 
   private itemsSubscribe: Subscription = new Subscription();
 
+  dataStore$ = this.store.select(selectCurrentYoutube);
+
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    public dataControl: DataControlService,
     private router: Router,
+    private store: Store,
   ) {}
 
   ngOnInit(): void {
-    this.itemsSubscribe = this.dataControl.dataSubj$
+    this.itemsSubscribe = this.dataStore$
       .pipe(
         tap((response) => {
           if (response) this.items = response;
@@ -38,7 +41,7 @@ export class ItemInformationPageComponent implements OnInit, OnDestroy {
         const itemId = this.items.find((item) => item.id === params['id']);
         this.item = itemId;
       } else {
-        this.router.navigate(['/error']);
+        this.router.navigate(['/main']);
       }
     });
   }

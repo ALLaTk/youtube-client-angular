@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { DataControlService } from 'src/app/core/services/data-control.service';
 import { Login, LoginButton } from '../models/login.model';
+import { GetVideoYoutube } from '../../store/actions/youtube.action';
 
 @Injectable()
 export class AuthService {
@@ -16,10 +17,7 @@ export class AuthService {
 
   colorButtonLogin: string = LoginButton.loginColorIn;
 
-  constructor(
-    private router: Router,
-    private dataControl: DataControlService,
-  ) {}
+  constructor(private router: Router, private store: Store) {}
 
   checkIn(loginValue: Login): void {
     if (loginValue.login && loginValue.password) {
@@ -41,7 +39,7 @@ export class AuthService {
     this.login = LoginButton.loginIn;
     this.colorButtonLogin = LoginButton.loginColorIn;
     this.router.navigate(['/login']);
-    this.dataControl.dataSubj$.next(null);
+    this.store.dispatch(GetVideoYoutube({ video: null }));
   }
 
   checkLogin(): void {

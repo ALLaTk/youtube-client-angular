@@ -1,4 +1,4 @@
-<div class="search" *ngIf="this.dataControl.dataSubj$ | async as data">
+<div class="search" *ngIf="dataStore$ | async as data">
   <div class="search__content">
     <app-search-item
       *ngFor="
