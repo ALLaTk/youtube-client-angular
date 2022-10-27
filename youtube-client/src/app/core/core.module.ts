@@ -17,7 +17,8 @@ import { SearchResultService } from './services/search-result.service';
 import { DataControlService } from './services/data-control.service';
 import { ApiKeyInterceptor } from './interceptor/api-key.interceptor';
 import { ApiUrlInterceptor } from './interceptor/api-url.interceptor';
-import { mainReducer } from '../store/reducers/main.reducer';
+import { youtubeReducer } from '../store/reducers/youtube.reducer';
+import { adminReducer } from '../store/reducers/admin.reducer';
 
 @NgModule({
   declarations: [HeaderComponent, NotFoundPageComponent],
@@ -26,7 +27,13 @@ import { mainReducer } from '../store/reducers/main.reducer';
     CommonModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot(mainReducer, {}),
+    StoreModule.forRoot(
+      {
+        video: youtubeReducer,
+        card: adminReducer,
+      },
+      {},
+    ),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

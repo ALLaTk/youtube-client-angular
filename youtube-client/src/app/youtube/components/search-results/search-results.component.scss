@@ -10,7 +10,11 @@
     gap: 30px;
   }
   .add-card {
-    margin: 30px;
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
   }
 }
 
