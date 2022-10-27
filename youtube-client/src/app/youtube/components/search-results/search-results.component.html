@@ -1,5 +1,5 @@
-<div class="search" *ngIf="dataStore$ | async as data">
-  <div class="search__content">
+<div class="search">
+  <div class="search__content" *ngIf="video$ | async as data">
     <app-search-item
       *ngFor="
         let card of data
@@ -10,5 +10,8 @@
       "
       [item]="card">
     </app-search-item>
+  </div>
+  <div class="search__content add-card" *ngIf="cards$ | async as data">
+    <app-add-card *ngFor="let card of data" [item]="card"></app-add-card>
   </div>
 </div>

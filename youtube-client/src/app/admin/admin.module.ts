@@ -6,7 +6,6 @@ import { AdminComponent } from './components/admin/admin.component';
 import { CreateCardPageComponent } from './pages/create-card-page/create-card-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { DateValidatorService } from './services/date-validator.service';
-import { AdminService } from './services/admin.service';
 
 @NgModule({
   declarations: [AdminComponent, CreateCardPageComponent],
@@ -17,6 +16,6 @@ import { AdminService } from './services/admin.service';
     SharedModule,
     ReactiveFormsModule,
   ],
-  providers: [DateValidatorService, AdminService],
+  providers: [DateValidatorService],
 })
 export class AdminModule {}

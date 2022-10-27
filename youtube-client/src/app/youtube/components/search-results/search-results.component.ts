@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { selectCurrentCard } from 'src/app/store/selectors/admin.selector';
 import { selectCurrentYoutube } from 'src/app/store/selectors/youtube.selector';
 import { FilterService } from '../../services/filter.service';
 
@@ -9,7 +10,9 @@ import { FilterService } from '../../services/filter.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  dataStore$ = this.store.select(selectCurrentYoutube);
+  video$ = this.store.select(selectCurrentYoutube);
+
+  cards$ = this.store.select(selectCurrentCard);
 
   constructor(public filterService: FilterService, public store: Store) {}
 }

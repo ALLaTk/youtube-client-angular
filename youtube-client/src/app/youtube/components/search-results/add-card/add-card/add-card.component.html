@@ -1,0 +1,13 @@
+<div
+  class="card"
+  *ngIf="item"
+  appColorItem
+  [itemDate]="item.date + ''"
+  elem="border-bottom-color">
+  <img class="card__image" src="{{ item.image }}" alt="cardImage" />
+  <h3 class="card__titile">{{ item.title }}</h3>
+  <div class="date">{{ item.date + '' | date: 'fullDate' }}</div>
+  <a [routerLink]="['card', item.id]" class="card__button" mat-raised-button>
+    more...
+  </a>
+</div>

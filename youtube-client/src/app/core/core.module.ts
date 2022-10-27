@@ -14,11 +14,10 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { DataApiService } from './services/data-api.service';
 import { SearchResultService } from './services/search-result.service';
-import { AdminService } from '../admin/services/admin.service';
 import { DataControlService } from './services/data-control.service';
 import { ApiKeyInterceptor } from './interceptor/api-key.interceptor';
 import { ApiUrlInterceptor } from './interceptor/api-url.interceptor';
-import { youtubeReducer } from '../store/reducers/youtube.reducer';
+import { mainReducer } from '../store/reducers/main.reducer';
 
 @NgModule({
   declarations: [HeaderComponent, NotFoundPageComponent],
@@ -27,7 +26,7 @@ import { youtubeReducer } from '../store/reducers/youtube.reducer';
     CommonModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot({ video: youtubeReducer }, {}),
+    StoreModule.forRoot(mainReducer, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
@@ -41,7 +40,6 @@ import { youtubeReducer } from '../store/reducers/youtube.reducer';
     AuthGuard,
     DataApiService,
     SearchResultService,
-    AdminService,
     DataControlService,
     {
       provide: HTTP_INTERCEPTORS,

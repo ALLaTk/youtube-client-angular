@@ -4,7 +4,7 @@
     action=""
     class="form"
     [formGroup]="formAdmin"
-    (ngSubmit)="formAdmin.valid && this.adminService.createCard()">
+    (ngSubmit)="formAdmin.valid && this.createCard()">
     <div class="form-admin">
       <p class="admin__subtitle">title</p>
       <input class="admin__input" type="text" formControlName="title" />
@@ -25,12 +25,12 @@
       </div>
     </div>
     <div class="form-admin">
-      <p class="admin__subtitle">discription</p>
-      <input class="admin__input" type="text" formControlName="discription" />
+      <p class="admin__subtitle">description</p>
+      <input class="admin__input" type="text" formControlName="description" />
       <div
         class="error-message"
-        *ngIf="formAdmin.controls['discription'].errors?.['required'] && formAdmin.controls['discription'].touched">
-        Please enter a discription
+        *ngIf="formAdmin.controls['description'].errors?.['required'] && formAdmin.controls['description'].touched">
+        Please enter a description
       </div>
     </div>
     <div class="form-admin">
@@ -59,20 +59,6 @@
         class="error-message"
         *ngIf="formAdmin.controls['video'].errors?.['pattern'] && formAdmin.controls['video'].touched">
         The video link is invalid
-      </div>
-    </div>
-    <div class="form-admin">
-      <p class="admin__subtitle">date</p>
-      <input class="admin__input" type="date" formControlName="date" />
-      <div
-        class="error-message"
-        *ngIf="formAdmin.controls['date'].errors?.['required'] && formAdmin.controls['date'].touched">
-        Please enter a creation date
-      </div>
-      <div
-        class="error-message"
-        *ngIf="formAdmin.controls['date'].errors?.['hasDate'] && formAdmin.controls['date'].touched">
-        The date is invalid
       </div>
     </div>
     <button
