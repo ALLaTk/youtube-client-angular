@@ -7,6 +7,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { environment } from 'src/environments/environment';
 import { adminReducer } from './reducers/admin.reducer';
 import { youtubeReducer } from './reducers/youtube.reducer';
+import { YoutubeEffects } from './effects/youtube.effect';
 
 @NgModule({
   declarations: [],
@@ -23,7 +24,7 @@ import { youtubeReducer } from './reducers/youtube.reducer';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([YoutubeEffects]),
     StoreRouterConnectingModule.forRoot(),
   ],
 })

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { loadVideoSuccess } from 'src/app/store/actions/youtube.action';
 import { Login, LoginButton } from '../models/login.model';
-import { GetVideoYoutube } from '../../store/actions/youtube.action';
 
 @Injectable()
 export class AuthService {
@@ -39,7 +39,7 @@ export class AuthService {
     this.login = LoginButton.loginIn;
     this.colorButtonLogin = LoginButton.loginColorIn;
     this.router.navigate(['/login']);
-    this.store.dispatch(GetVideoYoutube({ video: null }));
+    this.store.dispatch(loadVideoSuccess({ video: null }));
   }
 
   checkLogin(): void {

@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { SearchResponse } from 'src/app/youtube/models/search-response.model';
-import { GetVideoYoutube } from '../actions/youtube.action';
+import { loadVideoSuccess } from '../actions/youtube.action';
 
 export interface YoutubeState {
   video: SearchResponse | null;
@@ -13,7 +13,7 @@ export const initalYoutubeState: YoutubeState = {
 export const youtubeReducer = createReducer(
   initalYoutubeState,
   on(
-    GetVideoYoutube,
+    loadVideoSuccess,
     (state, { video }): YoutubeState => ({ ...state, video }),
   ),
 );
