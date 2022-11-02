@@ -20,16 +20,18 @@ export class SortingPipe implements PipeTransform {
         );
       }
       case SortKeyword.byDate: {
-        items.sort(
+        const sortDate = [...items].sort(
           (a, b) =>
             new Date(b.snippet.publishedAt).getTime() -
             new Date(a.snippet.publishedAt).getTime(),
         );
-        return keySort === BySort.descending ? items.reverse() : items;
+        return keySort === BySort.descending ? sortDate.reverse() : sortDate;
       }
       case SortKeyword.byViews: {
-        items.sort((a, b) => +b.statistics.viewCount - +a.statistics.viewCount);
-        return keySort === BySort.descending ? items.reverse() : items;
+        const sortView = [...items].sort(
+          (a, b) => +b.statistics.viewCount - +a.statistics.viewCount,
+        );
+        return keySort === BySort.descending ? sortView.reverse() : sortView;
       }
       default:
         return items;

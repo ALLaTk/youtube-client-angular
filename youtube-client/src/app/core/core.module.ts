@@ -9,22 +9,21 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { DataApiService } from './services/data-api.service';
 import { SearchResultService } from './services/search-result.service';
-import { AdminService } from '../admin/services/admin.service';
 import { DataControlService } from './services/data-control.service';
 import { ApiKeyInterceptor } from './interceptor/api-key.interceptor';
 import { ApiUrlInterceptor } from './interceptor/api-url.interceptor';
+import { StoresModule } from '../store/stores.module';
 
 @NgModule({
   declarations: [HeaderComponent, NotFoundPageComponent],
   exports: [HeaderComponent],
-  imports: [CommonModule, SharedModule, HttpClientModule],
+  imports: [CommonModule, SharedModule, HttpClientModule, StoresModule],
   providers: [
     HeaderService,
     AuthService,
     AuthGuard,
     DataApiService,
     SearchResultService,
-    AdminService,
     DataControlService,
     {
       provide: HTTP_INTERCEPTORS,

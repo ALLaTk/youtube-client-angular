@@ -1,4 +1,5 @@
 import { ElementRef, Injectable, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -9,12 +10,13 @@ import {
   tap,
 } from 'rxjs';
 import { HeaderService } from 'src/app/core/services/header.service';
+import { addParams } from 'src/app/store/actions/youtube.action';
 
 @Injectable()
 export class SearchResultService implements OnDestroy {
   private inputSubscribe: Subscription = new Subscription();
 
-  constructor(private headerService: HeaderService) {}
+  constructor(private headerService: HeaderService, private store: Store) {}
 
   searchWord(input: ElementRef) {
     this.inputSubscribe = fromEvent(input.nativeElement, 'keyup')
@@ -25,7 +27,7 @@ export class SearchResultService implements OnDestroy {
         filter((text) => (<string>text.trim()).length > 3),
         debounceTime(500),
         distinctUntilChanged(),
-        tap((value) => this.headerService.getNameVideo(value)),
+        tap((value) => this.store.dispatch(addParams({ content: value }))),
       )
       .subscribe();
   }

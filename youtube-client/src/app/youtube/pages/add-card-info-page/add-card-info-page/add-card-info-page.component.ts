@@ -1,24 +1,24 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Subscription, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectCurrentYoutube } from 'src/app/store/selectors/youtube.selector';
-import { SearchItem } from '../../models/search-item.model';
+import { Subscription, tap } from 'rxjs';
+import { selectCurrentCard } from 'src/app/store/selectors/admin.selector';
+import { Card } from 'src/app/youtube/models/admin.model';
 
 @Component({
-  selector: 'app-item-information-page',
-  templateUrl: './item-information-page.component.html',
-  styleUrls: ['./item-information-page.component.scss'],
+  selector: 'app-add-card-info-page',
+  templateUrl: './add-card-info-page.component.html',
+  styleUrls: ['./add-card-info-page.component.scss'],
 })
-export class ItemInformationPageComponent implements OnInit, OnDestroy {
-  items!: SearchItem[];
+export class AddCardInfoPageComponent implements OnInit, OnDestroy {
+  items!: Card[];
 
-  item: SearchItem | undefined;
+  item: Card | undefined;
 
   private itemsSubscribe: Subscription = new Subscription();
 
-  video$ = this.store.select(selectCurrentYoutube);
+  cards$ = this.store.select(selectCurrentCard);
 
   constructor(
     private routerActivated: ActivatedRoute,
@@ -28,7 +28,7 @@ export class ItemInformationPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.itemsSubscribe = this.video$
+    this.itemsSubscribe = this.cards$
       .pipe(
         tap((response) => {
           if (response) this.items = response;
@@ -38,7 +38,7 @@ export class ItemInformationPageComponent implements OnInit, OnDestroy {
 
     this.routerActivated.params.subscribe((params) => {
       if (this.items) {
-        const itemId = this.items.find((item) => item.id === params['id']);
+        const itemId = this.items.find((item) => `${item.id}` === params['id']);
         this.item = itemId;
       } else {
         this.router.navigate(['/main']);

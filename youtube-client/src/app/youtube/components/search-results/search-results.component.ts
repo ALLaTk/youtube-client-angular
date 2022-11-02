@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { DataControlService } from 'src/app/core/services/data-control.service';
+import { Store } from '@ngrx/store';
+import { selectCurrentCard } from 'src/app/store/selectors/admin.selector';
+import { selectCurrentYoutube } from 'src/app/store/selectors/youtube.selector';
 import { FilterService } from '../../services/filter.service';
 
 @Component({
@@ -8,8 +10,9 @@ import { FilterService } from '../../services/filter.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  constructor(
-    public dataControl: DataControlService,
-    public filterService: FilterService,
-  ) {}
+  video$ = this.store.select(selectCurrentYoutube);
+
+  cards$ = this.store.select(selectCurrentCard);
+
+  constructor(public filterService: FilterService, public store: Store) {}
 }

@@ -9,8 +9,6 @@ export class HeaderService {
 
   public isToggleFilter: boolean = false;
 
-  public isAddCard: boolean = true;
-
   constructor(
     public authService: AuthService,
     private router: Router,
@@ -28,8 +26,7 @@ export class HeaderService {
   }
 
   createCard() {
-    if (this.isAddCard) this.router.navigate(['/admin']);
-    else this.router.navigate(['/main']);
-    this.isAddCard = !this.isAddCard;
+    if (this.router.url === '/admin') this.router.navigate(['/main']);
+    else this.router.navigate(['/admin']);
   }
 }

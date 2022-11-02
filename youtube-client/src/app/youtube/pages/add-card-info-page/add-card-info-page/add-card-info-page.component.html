@@ -1,0 +1,32 @@
+<div class="inform">
+  <div class="inform__comtainer" *ngIf="item">
+    <div class="inform__block-image">
+      <button
+        class="inform__close"
+        mat-raised-button
+        (click)="this.returnOnMainPage()"
+        appColorItem
+        [itemDate]="item.date + ''"
+        elem="background-color">
+        <img
+          src="./assets/svg/close.svg"
+          alt="setting"
+          width="16px"
+          height="16px" />
+      </button>
+      <img src="{{ item.image }}" alt="image-video" class="inform__image" />
+    </div>
+    <div
+      class="inform__details"
+      appColorItem
+      [itemDate]="item.date + ''"
+      elem="border-bottom-color">
+      <p class="inform-details-title">{{ item.title }}</p>
+      <div class="inform-details-date">
+        {{ item.date + '' | date: 'fullDate' }}
+      </div>
+      <p class="inform-details-description">Description:</p>
+      <div class="inform-details-text">{{ item.description }}</div>
+    </div>
+  </div>
+</div>
